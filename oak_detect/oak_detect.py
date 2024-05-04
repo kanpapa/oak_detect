@@ -100,7 +100,7 @@ class OakDetect(Node):
     def listener_callback(self, data):
         bounding_boxes = data                   # Detection2DArray
         detections = bounding_boxes.detections  # Detection2D[]
-        self.toward_obj('5', detections)        # #5: bottle があったらその方向に向くようにposeを調整
+        self.toward_obj('5', detections)        # #5: bottle があったらその方向に向くようにtwistを調整
         #toward_obj('cup',a)
         #print(a[0])
 
