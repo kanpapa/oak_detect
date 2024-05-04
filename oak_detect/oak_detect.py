@@ -3,7 +3,7 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-from geometry_msgs.msg import Pose
+#from geometry_msgs.msg import Pose
 from vision_msgs.msg import Detection2DArray
 import math
 
@@ -83,9 +83,14 @@ class OakDetect(Node):
                 #self.yaw_increment = (self.width/2 - bb.center.position.x)*0.0002       # yaw:   Z方向の回転量
                 #self.pitch_increment = -(self.height/2 - bb.center.position.y)*0.0002   # Pitch: Y方向の回転量
 
-                self.angular_increment = (self.width/2 - bb.center.position.x)*0.01   # 左右の回転量
+                self.angular_increment = (self.width/2 - bb.center.position.x)*0.01   # 左右の回転量を計算する
                 print(self.angular_increment)
 
+                self.twist.linear.x = 0.0
+                self.twist.linear.y = 0.0
+                self.twist.linear.z = 0.0
+                self.twist.angular.x = 0.0
+                self.twist.angular.y = 0.0 
                 self.twist.angular.z = self.angular_increment
                 self.publisher_.publish(self.twist)      # 計算したangular.zをpublish
             
