@@ -9,7 +9,7 @@ OAK-D-LITEを使用して、ボトルの方向を向くようにkobukiを回転�
     ```
     sudo apt install ros-humble-depthai-ros
     ```
-1. デバイスの設定を行う。
+1. OAK-D-LITEのデバイスの設定を行う。
     ```
     echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
     sudo udevadm control --reload-rules && sudo udevadm trigger
